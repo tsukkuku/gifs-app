@@ -7,6 +7,13 @@ export interface Gifs {
   };
 }
 
+export interface RandomGif {
+  data: IGif;
+  pagination: {
+    offset: number;
+  };
+}
+
 export interface IGif {
   id: string;
   slug: string;

@@ -1,20 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
+import Button from "../ui/Button/Button";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className={styles.header}>
       <h1>Gif App</h1>
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
           <li>
-            <Link to={"/search"}>Search</Link>
+            <Button onClick={() => navigate("/search")}>Search</Button>
           </li>
           <li>
-            <Link to={"/"}>Trends</Link>
+            <Button onClick={() => navigate("/")}>Trends</Button>
           </li>
           <li>
-            <Link to={"/random"}>Random</Link>
+            <Button onClick={() => navigate("/random")}>Random</Button>
           </li>
         </ul>
       </nav>
