@@ -1,0 +1,26 @@
+.primary {
+  border: 1px solid black;
+  background-color: #fff;
+  color: black;
+  padding: 10px 33px;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 52px;
+  padding-bottom: 30px;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
