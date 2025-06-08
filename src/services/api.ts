@@ -1,5 +1,7 @@
-import type { Gifs } from "@/types/Gif";
+import type { Gifs, RandomGif } from "@/types/Gif";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const gifTrendingApi = createApi({
   reducerPath: "gifApi",
@@ -9,13 +11,21 @@ export const gifTrendingApi = createApi({
       query: (offset) => ({
         url: "gifs/trending",
         params: {
-          api_key: import.meta.env.VITE_API_KEY,
+          api_key: API_KEY,
           limit: 12,
           offset,
+        },
+      }),
+    }),
+    getRandomGif: build.query<RandomGif, void>({
+      query: () => ({
+        url: "gifs/random",
+        params: {
+          api_key: API_KEY,
         },
       }),
     }),
   }),
 });
 
-export const { useGetGifsTrendingQuery } = gifTrendingApi;
+export const { useGetGifsTrendingQuery, useGetRandomGifQuery } = gifTrendingApi;
