@@ -1,6 +1,19 @@
-.img {
+.default {
   width: 252px;
   height: 296px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(50%);
+  }
+}
+
+.random {
+  width: 480px;
+  height: 480px;
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
