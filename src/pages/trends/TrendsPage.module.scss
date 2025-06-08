@@ -1,0 +1,12 @@
+.paginationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 52px;
+  padding-bottom: 30px;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,12 @@
+.img {
+  width: 252px;
+  height: 296px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(50%);
+  }
+}

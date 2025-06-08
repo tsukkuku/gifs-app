@@ -1,0 +1,8 @@
+.gifContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  place-content: center;
+  place-items: center;
+  margin: 0 auto;
+}
