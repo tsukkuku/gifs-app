@@ -18,7 +18,7 @@ const TrendsPage = () => {
       <GifList>
         {newGifs.map((item) => (
           <Gif
-            key={item.id}
+            key={item.images.original.url}
             src={item.images.original.url}
             title={item.title}
           />
