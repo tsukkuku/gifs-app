@@ -25,7 +25,22 @@ export const gifTrendingApi = createApi({
         },
       }),
     }),
+    getSearchGif: build.query<Gifs, { q: string; offset: number }>({
+      query: ({ q, offset }) => ({
+        url: "gifs/search",
+        params: {
+          api_key: API_KEY,
+          q,
+          limit: 12,
+          offset,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetGifsTrendingQuery, useGetRandomGifQuery } = gifTrendingApi;
+export const {
+  useGetGifsTrendingQuery,
+  useGetRandomGifQuery,
+  useGetSearchGifQuery,
+} = gifTrendingApi;
