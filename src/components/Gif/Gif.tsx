@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { memo, type FC } from "react";
 import style from "./Gif.module.scss";
 import clsx from "clsx";
 
@@ -10,8 +10,8 @@ interface GifProps {
   variant?: GifVariant;
 }
 
-const Gif: FC<GifProps> = ({ src, title, variant = "default" }) => {
+const Gif: FC<GifProps> = memo(({ src, title, variant = "default" }) => {
   return <img src={src} alt={title} className={clsx(style[variant])} />;
-};
+});
 
 export default Gif;

@@ -23,6 +23,7 @@ export const usePagination = (data: Gifs | undefined, value?: string) => {
   }, []);
 
   useEffect(() => {
+    if (value === undefined) return;
     dispatch(resetOffset());
     setNewGifs([]);
   }, [value]);
