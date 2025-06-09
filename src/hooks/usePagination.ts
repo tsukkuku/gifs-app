@@ -3,7 +3,7 @@ import { resetOffset, setOffset } from "@/store/slices/offset.slice";
 import type { IGif } from "@/types/Gif";
 import { useEffect, useRef, useState } from "react";
 
-export const usePagination = (data: any) => {
+export const usePagination = (data: any, value?: string) => {
   const dispatch = useAppDispatch();
   const [newGifs, setNewGifs] = useState<IGif[]>([]);
   const [shouldScroll, setShouldScroll] = useState<boolean>(false);
@@ -21,6 +21,11 @@ export const usePagination = (data: any) => {
       setNewGifs([]);
     };
   }, []);
+
+  useEffect(() => {
+    dispatch(resetOffset());
+    setNewGifs([]);
+  }, [value]);
 
   useEffect(() => {
     if (shouldScroll && ref.current) {
