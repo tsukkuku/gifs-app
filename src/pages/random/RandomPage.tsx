@@ -3,9 +3,10 @@ import Button from "@/components/ui/Button/Button";
 import { useGetRandomGifQuery } from "@/services/api";
 
 const RandomPage = () => {
-  const { data, isLoading, error, refetch } = useGetRandomGifQuery();
+  const { data, isLoading, error, isFetching, refetch } =
+    useGetRandomGifQuery();
 
-  if (isLoading) return <p>Загрузка...</p>;
+  if (isLoading || isFetching) return <p>Загрузка...</p>;
   if (error) return <p>Error loading Gifs</p>;
   if (!data?.data.images?.original?.url) return <p>No GIF found</p>;
 
