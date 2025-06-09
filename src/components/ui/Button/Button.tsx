@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, FC } from "react";
 import style from "./Button.module.scss";
-import cn from "classnames";
+import clsx from "clsx";
 
 type ButtonVariant = "primary" | "pagination" | "danger";
 
@@ -15,7 +15,7 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <button onClick={onClick} className={cn(style[variant])} {...props}>
+    <button onClick={onClick} className={clsx(style[variant])} {...props}>
       {children}
     </button>
   );

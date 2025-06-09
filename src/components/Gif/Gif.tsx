@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import style from "./Gif.module.scss";
-import cn from "classnames";
+import clsx from "clsx";
 
 type GifVariant = "default" | "random";
 
@@ -11,7 +11,7 @@ interface GifProps {
 }
 
 const Gif: FC<GifProps> = ({ src, title, variant = "default" }) => {
-  return <img src={src} alt={title} className={cn(style[variant])} />;
+  return <img src={src} alt={title} className={clsx(style[variant])} />;
 };
 
 export default Gif;
