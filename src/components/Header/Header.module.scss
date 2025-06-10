@@ -10,6 +10,20 @@
   h1 {
     font-size: 32px;
     font-weight: 700;
+    z-index: 1;
+  }
+}
+
+.headerName {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  button {
+    position: absolute;
+    right: 0;
   }
 }
 

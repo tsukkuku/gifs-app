@@ -6,7 +6,12 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <header className={styles.header}>
-      <h1>Gif App</h1>
+      <div className={styles.headerName}>
+        <h1>Gif App</h1>
+        <Button variant="primary" onClick={() => navigate("/favorites")}>
+          Favorites
+        </Button>
+      </div>
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
           <li>

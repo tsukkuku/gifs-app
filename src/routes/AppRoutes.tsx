@@ -1,4 +1,5 @@
 import Layout from "@/layouts/Layout";
+import FavoritePage from "@/pages/favorite/FavoritePage";
 import RandomPage from "@/pages/random/RandomPage";
 import SearchPage from "@/pages/search/SearchPage";
 import TrendsPage from "@/pages/trends/TrendsPage";
@@ -14,6 +15,7 @@ export const routes: RouteObject[] = [
       { path: "search", Component: SearchPage },
     ],
   },
+  { path: "/favorites", Component: FavoritePage },
 ];
 
 export const router = createBrowserRouter(routes);
