@@ -7,6 +7,7 @@ import { usePagination } from "@/hooks/usePagination";
 import { useGetSearchGifQuery } from "@/services/api";
 import { useAppSelector } from "@/store/hooks";
 import { useState, type ChangeEvent } from "react";
+import { ClipLoader } from "react-spinners";
 
 const SearchPage = () => {
   const offset = useAppSelector((state) => state.offset.offset);
@@ -15,7 +16,7 @@ const SearchPage = () => {
   const { data, isLoading, isFetching } = useGetSearchGifQuery(
     {
       q: debouncedValue,
-      offset: offset,
+      offset,
     },
     { skip: !debouncedValue }
   );
@@ -25,7 +26,15 @@ const SearchPage = () => {
     setValue(e.target.value);
   };
 
-  if (isLoading) return <p>Загрузка...</p>;
+  const examination = () => {
+    if (!debouncedValue) {
+      return <p>Пока здесь ничего нет :(</p>;
+    }
+    if (data?.data.length === 0) {
+      return <p>Ничего не найдено</p>;
+    }
+    return null;
+  };
 
   return (
     <>
@@ -34,7 +43,8 @@ const SearchPage = () => {
         onChange={handleChange}
         value={value}
       />
-      {isFetching && <p>Загрузка...</p>}
+      {examination()}
+      {isFetching && <ClipLoader />}
       <GifList>
         {newGifs.map((gif) => (
           <Gif

@@ -4,13 +4,14 @@ import Gif from "@/components/Gif/Gif";
 import { usePagination } from "@/hooks/usePagination";
 import { useAppSelector } from "@/store/hooks";
 import Button from "@/components/ui/Button/Button";
+import { ClipLoader } from "react-spinners";
 
 const TrendsPage = () => {
   const offset = useAppSelector((state) => state.offset.offset);
   const { data, isLoading, error } = useGetGifsTrendingQuery(offset);
   const { ref, newGifs, handleOffset } = usePagination(data);
 
-  if (isLoading && newGifs.length === 0) return <p>Загрузка...</p>;
+  if (isLoading && newGifs.length === 0) return <ClipLoader />;
   if (error) return <p>Error loading Gifs</p>;
 
   return (
