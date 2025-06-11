@@ -1,9 +1,35 @@
-import React from "react";
+import Gif from "@/components/Gif/Gif";
+import GifList from "@/components/GifList/GifList";
+import { useAppSelector } from "@/store/hooks";
+import style from "./FavoritePage.module.scss";
+import { useNavigate } from "react-router-dom";
+import { selectAllFavorites } from "@/store/selectors/favorites.selector";
+import Button from "@/components/ui/Button/Button";
 
-type Props = {};
-
-const FavoritePage = (props: Props) => {
-  return <div>FavoritePage</div>;
+const FavoritePage = () => {
+  const navigate = useNavigate();
+  const items = useAppSelector(selectAllFavorites);
+  return (
+    <div className={style.favoritePage}>
+      <div className={style.navigation}>
+        <h1>My Favorites</h1>
+        <Button onClick={() => navigate(-1)}>Back</Button>
+      </div>
+      <div className={style.favoriteGifs}>
+        {items.length === 0 ? (
+          <p style={{ color: "white" }}>Пока у вас нету избранных Gif.</p>
+        ) : (
+          <>
+            <GifList>
+              {items?.map((item) => (
+                <Gif key={item.images.original.url} item={item} />
+              ))}
+            </GifList>
+          </>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default FavoritePage;
