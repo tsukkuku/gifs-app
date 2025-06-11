@@ -16,12 +16,21 @@ export const favoriteSlice = createSlice({
       );
 
       if (!find) {
-        state.items.push(action.payload);
+        state.items.push({ ...action.payload, isPressed: false });
       } else {
         state.items = state.items.filter(
           (item) =>
             item.images.original.url !== action.payload.images.original.url
         );
+      }
+    },
+    toggleFavorite(state, action: PayloadAction<IGif>) {
+      const find = state.items.find(
+        (item) =>
+          item.images.original.url === action.payload.images.original.url
+      );
+      if (find) {
+        find.isPressed = !find.isPressed;
       }
     },
     resetFavorites(state) {
@@ -30,5 +39,6 @@ export const favoriteSlice = createSlice({
   },
 });
 
-export const { addFavorite, resetFavorites } = favoriteSlice.actions;
+export const { addFavorite, toggleFavorite, resetFavorites } =
+  favoriteSlice.actions;
 export default favoriteSlice.reducer;
