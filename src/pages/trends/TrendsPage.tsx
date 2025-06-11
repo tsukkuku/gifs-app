@@ -5,9 +5,10 @@ import { usePagination } from "@/hooks/usePagination";
 import { useAppSelector } from "@/store/hooks";
 import Button from "@/components/ui/Button/Button";
 import { ClipLoader } from "react-spinners";
+import { selectOffset } from "@/store/selectors/offset.selector";
 
 const TrendsPage = () => {
-  const offset = useAppSelector((state) => state.offset.offset);
+  const offset = useAppSelector(selectOffset);
   const { data, isLoading, error } = useGetGifsTrendingQuery(offset);
   const { ref, newGifs, handleOffset } = usePagination(data);
 
@@ -19,19 +20,11 @@ const TrendsPage = () => {
     <>
       <GifList>
         {newGifs.map((item) => (
-          <Gif
-            item={item}
-            key={item.images.original.url}
-            src={item.images.original.url}
-          />
+          <Gif item={item} key={item.images.original.url} />
         ))}
         <div ref={ref}></div>
       </GifList>
-      <Button
-        onClick={handleOffset}
-        disabled={isLoading}
-        variant="pagination"
-      >
+      <Button onClick={handleOffset} disabled={isLoading} variant="pagination">
         &#129147;
       </Button>
     </>

@@ -13,11 +13,7 @@ const RandomPage = () => {
 
   return (
     <>
-      <Gif
-        item={data.data}
-        src={data.data.images?.original.url}
-        variant="random"
-      />
+      <Gif item={data.data} variant="random" />
       <Button onClick={refetch} variant="pagination">
         &rarr;
       </Button>

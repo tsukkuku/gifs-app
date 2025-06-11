@@ -6,11 +6,12 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { usePagination } from "@/hooks/usePagination";
 import { useGetSearchGifQuery } from "@/services/api";
 import { useAppSelector } from "@/store/hooks";
+import { selectOffset } from "@/store/selectors/offset.selector";
 import { useState, type ChangeEvent } from "react";
 import { ClipLoader } from "react-spinners";
 
 const SearchPage = () => {
-  const offset = useAppSelector((state) => state.offset.offset);
+  const offset = useAppSelector(selectOffset);
   const [value, setValue] = useState<string>("");
   const debouncedValue = useDebounce(value, 650);
   const { data, isLoading, isFetching } = useGetSearchGifQuery(
@@ -47,12 +48,7 @@ const SearchPage = () => {
       {isFetching && <ClipLoader color="white" size={64} />}
       <GifList>
         {newGifs.map((gif) => (
-          <Gif
-            item={gif}
-            key={gif.images.original.url}
-            src={gif.images.original.url}
-            variant="default"
-          />
+          <Gif item={gif} key={gif.images.original.url} />
         ))}
       </GifList>
       <div ref={ref}></div>
