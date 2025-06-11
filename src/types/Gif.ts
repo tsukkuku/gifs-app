@@ -54,3 +54,7 @@ export interface IUser {
   username: string;
   display_name: string;
 }
+
+export interface favoriteState {
+  items: IGif[];
+}
