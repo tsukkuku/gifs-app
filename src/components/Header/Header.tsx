@@ -8,7 +8,11 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.headerName}>
         <h1>Gif App</h1>
-        <Button variant="primary" onClick={() => navigate("/favorites")}>
+        <Button
+          variant="primary"
+          onClick={() => navigate("/favorites")}
+          startContent="https://img.icons8.com/?size=100&id=581&format=png&color=000000"
+        >
           Favorites
         </Button>
       </div>
