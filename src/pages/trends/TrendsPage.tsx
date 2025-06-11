@@ -11,7 +11,8 @@ const TrendsPage = () => {
   const { data, isLoading, error } = useGetGifsTrendingQuery(offset);
   const { ref, newGifs, handleOffset } = usePagination(data);
 
-  if (isLoading && newGifs.length === 0) return <ClipLoader />;
+  if (isLoading && newGifs.length === 0)
+    return <ClipLoader color="white" size={64} />;
   if (error) return <p>Error loading Gifs</p>;
 
   return (
@@ -19,14 +20,18 @@ const TrendsPage = () => {
       <GifList>
         {newGifs.map((item) => (
           <Gif
+            item={item}
             key={item.images.original.url}
             src={item.images.original.url}
-            title={item.title}
           />
         ))}
         <div ref={ref}></div>
       </GifList>
-      <Button onClick={handleOffset} disabled={isLoading} variant="pagination">
+      <Button
+        onClick={handleOffset}
+        disabled={isLoading}
+        variant="pagination"
+      >
         &#129147;
       </Button>
     </>

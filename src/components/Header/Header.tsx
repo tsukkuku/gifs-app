@@ -11,7 +11,7 @@ const Header = () => {
         <Button
           variant="primary"
           onClick={() => navigate("/favorites")}
-          startContent="https://img.icons8.com/?size=100&id=581&format=png&color=000000"
+          startContent="https://img.icons8.com/?size=100&id=10287&format=png&color=FFFFFF"
         >
           Favorites
         </Button>

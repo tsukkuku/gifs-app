@@ -43,14 +43,14 @@ const SearchPage = () => {
         onChange={handleChange}
         value={value}
       />
-      {examination()}
-      {isFetching && <ClipLoader />}
+      <div style={{ color: "white" }}>{examination()}</div>
+      {isFetching && <ClipLoader color="white" size={64} />}
       <GifList>
         {newGifs.map((gif) => (
           <Gif
+            item={gif}
             key={gif.images.original.url}
             src={gif.images.original.url}
-            title={gif.title}
             variant="default"
           />
         ))}
