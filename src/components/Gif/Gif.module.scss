@@ -4,11 +4,6 @@
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    filter: brightness(50%);
-  }
 }
 
 .random {
@@ -17,9 +12,65 @@
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
-  transition: 0.3s;
+}
+
+.gif {
+  position: relative;
+  transition: 0.4s;
+
+  .buttonOverlay {
+    display: none;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+
+    img {
+      background: transparent;
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  .textOverlay {
+    display: none;
+
+    .textContent {
+      background: transparent;
+      max-width: 176px;
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+  }
 
   &:hover {
-    filter: brightness(50%);
+    .buttonOverlay {
+      display: flex;
+    }
+    .textOverlay {
+      cursor: pointer;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        transparent 100%
+      );
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+    }
   }
 }
