@@ -32,6 +32,7 @@ export interface IGif {
   trending_datetime: string;
   images: GiphyImages;
   title: string;
+  isPressed: boolean;
   alt_text?: string;
 }
 
