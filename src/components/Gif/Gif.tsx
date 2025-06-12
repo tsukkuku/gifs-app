@@ -53,7 +53,7 @@ const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
           alt="User Avatar"
         />
         <div className={style.textContent}>
-          {item?.user?.username || "Anonim"}
+          {item?.user?.display_name || "Anonim"}
         </div>
       </div>
     </div>
