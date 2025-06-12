@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addFavorite, toggleFavorite } from "@/store/slices/favorites.slice";
 import type { IGif } from "@/types/Gif";
 import { selectPressedStatus } from "@/store/selectors/favorites.selector";
+import { Link } from "react-router-dom";
 
 type GifVariant = "default" | "random";
 
@@ -25,11 +26,13 @@ const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
 
   return (
     <div className={style.gif}>
-      <img
-        src={item.images.original.url}
-        alt={item?.title}
-        className={clsx(style[variant])}
-      />
+      <Link to={`/${item.id}`}>
+        <img
+          src={item.images.original.url}
+          alt={item?.title}
+          className={clsx(style[variant])}
+        />
+      </Link>
       <div className={style.buttonOverlay}>
         <img
           src={
@@ -49,7 +52,9 @@ const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
           }
           alt="User Avatar"
         />
-        <div className={style.textContent}>{item?.title}</div>
+        <div className={style.textContent}>
+          {item?.user?.username || "Anonim"}
+        </div>
       </div>
     </div>
   );
