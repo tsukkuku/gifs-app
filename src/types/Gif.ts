@@ -58,6 +58,8 @@ export interface IUser {
   profile_url: string;
   username: string;
   display_name: string;
+  description: string;
+  is_verified: boolean;
 }
 
 export interface favoriteState {
