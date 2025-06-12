@@ -24,6 +24,10 @@ const GifIdPage = () => {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
+  const handleDownload = () => {
+    window.open(data?.data?.images?.original?.url, "_blank");
+  };
+
   if (isLoading) return <ClipLoader color="white" size={64} />;
   if (!data?.data?.images?.original?.url) return <div>GIF not found</div>;
   return (
@@ -67,8 +71,11 @@ const GifIdPage = () => {
           >
             {isCopied ? "Copied!" : "Copy Link"}
           </Button>
-          <Button startContent="https://img.icons8.com/?size=100&id=vk3CfSUT5UA6&format=png&color=FFFFFF">
-            <a href={data.data.images.original.url}>Download</a>
+          <Button
+            startContent="https://img.icons8.com/?size=100&id=vk3CfSUT5UA6&format=png&color=FFFFFF"
+            onClick={handleDownload}
+          >
+            Download
           </Button>
         </div>
       </div>
