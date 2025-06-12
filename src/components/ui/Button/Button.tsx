@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, FC } from "react";
 import style from "./Button.module.scss";
 import clsx from "clsx";
 
-type ButtonVariant = "primary" | "pagination" | "danger";
+type ButtonVariant = "primary" | "pagination";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
