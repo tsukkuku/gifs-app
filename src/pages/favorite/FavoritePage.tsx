@@ -13,7 +13,7 @@ const FavoritePage = () => {
     <div className={style.favoritePage}>
       <div className={style.navigation}>
         <h1>My Favorites</h1>
-        <Button onClick={() => navigate(-1)}>Back</Button>
+        <Button onClick={() => navigate(-1)}>&larr;</Button>
       </div>
       <div className={style.favoriteGifs}>
         {items.length === 0 ? (
