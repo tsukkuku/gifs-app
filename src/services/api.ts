@@ -1,4 +1,4 @@
-import type { Gifs, RandomGif } from "@/types/Gif";
+import type { GifID, Gifs, RandomGif } from "@/types/Gif";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -36,6 +36,14 @@ export const gifTrendingApi = createApi({
         },
       }),
     }),
+    getGifById: build.query<GifID, string>({
+      query: (id) => ({
+        url: `gifs/${id}`,
+        params: {
+          api_key: API_KEY,
+        },
+      }),
+    }),
   }),
 });
 
@@ -43,4 +51,5 @@ export const {
   useGetGifsTrendingQuery,
   useGetRandomGifQuery,
   useGetSearchGifQuery,
+  useGetGifByIdQuery,
 } = gifTrendingApi;
