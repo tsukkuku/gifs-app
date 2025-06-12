@@ -14,6 +14,10 @@ export interface RandomGif {
   };
 }
 
+export interface GifID {
+  data: IGif;
+}
+
 export interface IGif {
   id: string;
   slug: string;
