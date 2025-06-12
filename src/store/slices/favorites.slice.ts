@@ -1,8 +1,9 @@
 import type { favoriteState, IGif } from "@/types/Gif";
+import { setLocalStorage } from "@/utils/setLocalStorage";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: favoriteState = {
-  items: [],
+  items: setLocalStorage(),
 };
 
 export const favoriteSlice = createSlice({
@@ -23,7 +24,9 @@ export const favoriteSlice = createSlice({
             item.images.original.url !== action.payload.images.original.url
         );
       }
+      localStorage.setItem("gifs", JSON.stringify(state.items));
     },
+
     toggleFavorite(state, action: PayloadAction<IGif>) {
       const find = state.items.find(
         (item) =>
@@ -33,12 +36,8 @@ export const favoriteSlice = createSlice({
         find.isPressed = !find.isPressed;
       }
     },
-    resetFavorites(state) {
-      state.items = [];
-    },
   },
 });
 
-export const { addFavorite, toggleFavorite, resetFavorites } =
-  favoriteSlice.actions;
+export const { addFavorite, toggleFavorite } = favoriteSlice.actions;
 export default favoriteSlice.reducer;
