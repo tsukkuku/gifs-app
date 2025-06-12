@@ -21,7 +21,7 @@ const GifIdPage = () => {
     navigator.clipboard.writeText(data?.data.images.original.url || "");
     toast.success("Link is copied!");
     setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    setTimeout(() => setIsCopied(false), 2100);
   };
 
   const handleDownload = () => {
@@ -45,13 +45,17 @@ const GifIdPage = () => {
             <h2>{data?.data?.user?.display_name || "Anonim"}</h2>
             <a href={data?.data?.user?.profile_url} target="_blank">
               @{data?.data?.user?.username || "Anonim"}{" "}
-              <img
-                style={{ width: "15px", height: "15px" }}
-                src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
-                alt="icon"
-              />
+              {data?.data?.user?.is_verified && (
+                <img
+                  style={{ width: "15px", height: "15px" }}
+                  src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png"
+                  alt="icon"
+                />
+              )}
             </a>
-            <p>{data.data.title}</p>
+            <div className={style.desc}>
+              <p>{data?.data?.user?.description || "No description."}</p>
+            </div>
           </div>
         </div>
         <div className={style.buttons}>
@@ -63,7 +67,7 @@ const GifIdPage = () => {
             }
             onClick={() => dispatch(addFavorite(data.data))}
           >
-            Favorite
+            {isPressed ? "Removed" : "Favorite"}
           </Button>
           <Button
             startContent="https://img.icons8.com/?size=100&id=11322&format=png&color=FFFFFF"

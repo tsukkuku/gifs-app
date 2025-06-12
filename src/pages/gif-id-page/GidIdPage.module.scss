@@ -24,10 +24,12 @@
   }
 
   .info {
+    max-width: 255px;
     display: flex;
     flex-direction: column;
 
     a {
+      color: gray;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -39,9 +41,19 @@
     height: 55px;
     border-radius: 8px;
   }
+}
 
-  a {
-    color: gray;
+.desc {
+  margin-top: 5px;
+  max-width: 215px;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
