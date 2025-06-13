@@ -9,6 +9,8 @@ import { useAppSelector } from "@/store/hooks";
 import { selectOffset } from "@/store/selectors/offset.selector";
 import { useState, type ChangeEvent } from "react";
 import { ClipLoader } from "react-spinners";
+import style from "./SearchPage.module.scss";
+import { FaSearch } from "react-icons/fa";
 
 const SearchPage = () => {
   const offset = useAppSelector(selectOffset);
@@ -39,6 +41,13 @@ const SearchPage = () => {
 
   return (
     <>
+      <div className={style.titleContainer}>
+        <h1 className={style.title}>
+          <FaSearch />
+          Search Page
+        </h1>
+        <hr className={style.line} />
+      </div>
       <Input
         placeholder="Введите название гифки"
         onChange={handleChange}

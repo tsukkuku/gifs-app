@@ -6,6 +6,8 @@ import { useAppSelector } from "@/store/hooks";
 import Button from "@/components/ui/Button/Button";
 import { ClipLoader } from "react-spinners";
 import { selectOffset } from "@/store/selectors/offset.selector";
+import style from "./TrendsPage.module.scss";
+import { TbChartBarPopular } from "react-icons/tb";
 
 const TrendsPage = () => {
   const offset = useAppSelector(selectOffset);
@@ -19,6 +21,13 @@ const TrendsPage = () => {
 
   return (
     <>
+      <div className={style.titleContainer}>
+        <h1 className={style.title}>
+          <TbChartBarPopular />
+          Popular Gifs
+        </h1>
+        <hr className={style.line} />
+      </div>
       <GifList>
         {newGifs.map((item) => (
           <Gif item={item} key={item.images.original.url} />

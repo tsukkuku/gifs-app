@@ -6,6 +6,8 @@ import { useGetStickersQuery } from "@/services/api";
 import { useAppSelector } from "@/store/hooks";
 import { selectOffset } from "@/store/selectors/offset.selector";
 import { ClipLoader } from "react-spinners";
+import style from "./StickersPage.module.scss";
+import { FaArrowTrendUp } from "react-icons/fa6";
 
 const StickersPage = () => {
   const offset = useAppSelector(selectOffset);
@@ -16,6 +18,13 @@ const StickersPage = () => {
   if (error) return <p>Error loading Stickers</p>;
   return (
     <>
+      <div className={style.titleContainer}>
+        <h1 className={style.title}>
+          <FaArrowTrendUp />
+          Popular Stickers
+        </h1>
+        <hr className={style.line} />
+      </div>
       <GifList>
         {newGifs.map((item) => (
           <Gif key={item.images.original.url} item={item} variant="sticker" />
