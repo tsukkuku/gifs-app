@@ -9,6 +9,7 @@ import { selectPressedStatus } from "@/store/selectors/favorites.selector";
 import { toast, ToastContainer } from "react-toastify";
 import style from "./GidIdPage.module.scss";
 import { useState } from "react";
+import { FaCopy, FaDownload, FaHeart } from "react-icons/fa";
 
 const GifIdPage = () => {
   const dispatch = useAppDispatch();
@@ -64,25 +65,15 @@ const GifIdPage = () => {
         </div>
         <div className={style.buttons}>
           <Button
-            startContent={
-              isPressed
-                ? `https://img.icons8.com/?size=100&id=10287&format=png&color=F20303`
-                : "https://img.icons8.com/?size=100&id=10287&format=png&color=FFFFFF"
-            }
+            startContent={isPressed ? <FaHeart color="red" /> : <FaHeart />}
             onClick={() => dispatch(addFavorite(gifData))}
           >
             {isPressed ? "Removed" : "Favorite"}
           </Button>
-          <Button
-            startContent="https://img.icons8.com/?size=100&id=11322&format=png&color=FFFFFF"
-            onClick={handleCopy}
-          >
+          <Button startContent={<FaCopy />} onClick={handleCopy}>
             {isCopied ? "Copied!" : "Copy Link"}
           </Button>
-          <Button
-            startContent="https://img.icons8.com/?size=100&id=vk3CfSUT5UA6&format=png&color=FFFFFF"
-            onClick={handleDownload}
-          >
+          <Button startContent={<FaDownload />} onClick={handleDownload}>
             Download
           </Button>
         </div>
