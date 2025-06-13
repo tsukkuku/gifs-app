@@ -22,7 +22,11 @@ const FavoritePage = () => {
           <>
             <GifList>
               {items?.map((item) => (
-                <Gif key={item.images.original.url} item={item} />
+                <Gif
+                  key={item.images.original.url}
+                  item={item}
+                  variant="sticker"
+                />
               ))}
             </GifList>
           </>

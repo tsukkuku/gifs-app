@@ -14,7 +14,9 @@ import { FaCopy, FaDownload, FaHeart } from "react-icons/fa";
 const GifIdPage = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading } = useGetGifByIdQuery(id || "", { skip: !id });
+  const { data, isLoading, isFetching } = useGetGifByIdQuery(id || "", {
+    skip: !id,
+  });
   const gifData = data?.data;
   const gifUrl = gifData?.images.original.url;
   const user = gifData?.user;
@@ -78,7 +80,15 @@ const GifIdPage = () => {
           </Button>
         </div>
       </div>
-      <Gif item={gifData} variant="random" />
+      {isFetching ? (
+        <ClipLoader color="white" size={64} />
+      ) : (
+        <Gif
+          item={gifData}
+          variant="sticker"
+          styles={{ width: "480px", height: "480px" }}
+        />
+      )}
       <ToastContainer
         position="bottom-right"
         limit={1}
