@@ -1,0 +1,44 @@
+import { Link } from "react-router-dom";
+import style from "./Sidebar.module.scss";
+import { FaHome, FaSearch } from "react-icons/fa";
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
+import { useState } from "react";
+import Button from "../ui/Button/Button";
+
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className={isOpen ? style.sidebar : style.sidebarFalse}>
+      <Button onClick={handleOpen} className={isOpen ? "" : style.closedButton}>
+        &larr;
+      </Button>
+      <ul className={style.sidebarButtons}>
+        <li>
+          <Link to={"/"}>
+            <FaHome />
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to={"/random"}>
+            <GiPerspectiveDiceSixFacesRandom />
+            Random
+          </Link>
+        </li>
+        <li>
+          <Link to={"/search"}>
+            <FaSearch />
+            Search
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default Sidebar;
