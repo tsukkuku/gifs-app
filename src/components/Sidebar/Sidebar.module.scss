@@ -68,6 +68,10 @@
       align-items: center;
       font-size: 20px;
       color: #fff;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 }
