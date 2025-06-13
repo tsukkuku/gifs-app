@@ -1,4 +1,4 @@
-import { memo, type FC } from "react";
+import { memo, type CSSProperties, type FC } from "react";
 import style from "./Gif.module.scss";
 import clsx from "clsx";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -7,14 +7,15 @@ import type { IGif } from "@/types/Gif";
 import { selectPressedStatus } from "@/store/selectors/favorites.selector";
 import { Link } from "react-router-dom";
 
-type GifVariant = "default" | "random";
+type GifVariant = "default" | "random" | "sticker";
 
 interface GifProps {
   item?: IGif;
   variant?: GifVariant;
+  styles?: CSSProperties;
 }
 
-const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
+const Gif: FC<GifProps> = memo(({ variant = "default", item, styles }) => {
   if (!item) return;
   const dispatch = useAppDispatch();
   const isPressed = useAppSelector(selectPressedStatus(item.id));
@@ -31,6 +32,7 @@ const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
           src={item.images.original.url}
           alt={item?.title}
           className={clsx(style[variant])}
+          style={styles}
         />
       </Link>
       <div className={style.buttonOverlay}>

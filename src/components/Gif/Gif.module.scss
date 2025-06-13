@@ -14,6 +14,15 @@
   cursor: pointer;
 }
 
+.sticker {
+  width: 252px;
+  height: 296px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4AQMAAACSSKldAAAABlBMVEUhIiIWFhYoSqvJAAAAGElEQVQY02MAAv7///8PWxqIPwDZw5UGABtgwz2xhFKxAAAAAElFTkSuQmCC");
+}
+
 .gif {
   position: relative;
   transition: 0.4s;
