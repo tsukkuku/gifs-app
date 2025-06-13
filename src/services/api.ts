@@ -44,6 +44,16 @@ export const gifTrendingApi = createApi({
         },
       }),
     }),
+    getStickers: build.query<Gifs, number>({
+      query: (offset) => ({
+        url: "stickers/trending",
+        params: {
+          api_key: API_KEY,
+          limit: 12,
+          offset,
+        },
+      }),
+    }),
   }),
 });
 
@@ -52,4 +62,5 @@ export const {
   useGetRandomGifQuery,
   useGetSearchGifQuery,
   useGetGifByIdQuery,
+  useGetStickersQuery,
 } = gifTrendingApi;
