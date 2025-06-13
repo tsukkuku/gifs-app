@@ -9,7 +9,8 @@ import { selectOffset } from "@/store/selectors/offset.selector";
 
 const TrendsPage = () => {
   const offset = useAppSelector(selectOffset);
-  const { data, isLoading, error } = useGetGifsTrendingQuery(offset);
+  const { data, isLoading, error, isFetching } =
+    useGetGifsTrendingQuery(offset);
   const { ref, newGifs, handleOffset } = usePagination(data);
 
   if (isLoading && newGifs.length === 0)
@@ -25,7 +26,7 @@ const TrendsPage = () => {
         <div ref={ref}></div>
       </GifList>
       <Button onClick={handleOffset} disabled={isLoading} variant="pagination">
-        &#129147;
+        {isFetching ? <ClipLoader color="white" size={64} /> : <>&#129147;</>}
       </Button>
     </>
   );
