@@ -4,6 +4,7 @@ import { FaHome, FaSearch } from "react-icons/fa";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 import { useState } from "react";
 import Button from "../ui/Button/Button";
+import { LuSticker } from "react-icons/lu";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -34,6 +35,12 @@ const Sidebar = () => {
           <Link to={"/search"}>
             <FaSearch />
             Search
+          </Link>
+        </li>
+        <li>
+          <Link to={"/stickers"}>
+            <LuSticker />
+            Stickers
           </Link>
         </li>
       </ul>
