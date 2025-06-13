@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, FC } from "react";
+import type { ButtonHTMLAttributes, FC, ReactNode } from "react";
 import style from "./Button.module.scss";
 import clsx from "clsx";
 
@@ -6,8 +6,8 @@ type ButtonVariant = "primary" | "pagination";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
-  startContent?: string;
-  endContent?: string;
+  startContent?: ReactNode;
+  endContent?: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -16,13 +16,18 @@ const Button: FC<ButtonProps> = ({
   onClick,
   startContent,
   endContent,
+  className,
   ...props
 }) => {
   return (
-    <button onClick={onClick} className={clsx(style[variant])} {...props}>
-      {startContent && <img src={startContent} alt="icon" />}
+    <button
+      onClick={onClick}
+      className={clsx(style[variant], className)}
+      {...props}
+    >
+      {startContent && startContent}
       {children}
-      {endContent && <img src={endContent} alt="icon" />}
+      {endContent && endContent}
     </button>
   );
 };
