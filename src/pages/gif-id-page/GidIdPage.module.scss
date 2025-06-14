@@ -87,16 +87,6 @@
   }
 }
 
-@media (max-width: 723px) {
-  .gifID {
-    gap: 20px;
-  }
-  .textContent {
-    max-width: 200px;
-    align-items: end;
-  }
-}
-
 @media (max-width: 695px) {
   .gifID {
     min-height: 50vh;
@@ -105,6 +95,7 @@
     gap: 20px;
   }
   .textContent {
+    max-width: 200px;
     align-items: end;
   }
   .gifTest {
@@ -114,9 +105,6 @@
 }
 
 @media (max-width: 445px) {
-  .gifID {
-    gap: 20px;
-  }
   .textContent {
     max-width: 200px;
     align-items: end;
@@ -128,13 +116,6 @@
 }
 
 @media (max-width: 380px) {
-  .gifID {
-    gap: 20px;
-  }
-  .textContent {
-    justify-content: center;
-    align-items: center;
-  }
   .gifTest {
     max-width: 150px;
     height: 200px;
