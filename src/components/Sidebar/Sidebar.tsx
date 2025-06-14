@@ -1,24 +1,21 @@
 import { Link } from "react-router-dom";
-import style from "./Sidebar.module.scss";
 import { FaSearch } from "react-icons/fa";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
-import { useState } from "react";
-import Button from "../ui/Button/Button";
+import { type FC } from "react";
 import { LuSticker } from "react-icons/lu";
 import { TbChartBarPopular } from "react-icons/tb";
+import style from "./Sidebar.module.scss";
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+interface SidebarProps {
+  isOpen: boolean;
+}
 
-  const handleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Sidebar: FC<SidebarProps> = ({ isOpen }) => {
   return (
-    <div className={isOpen ? style.sidebar : style.sidebarFalse}>
-      <Button onClick={handleOpen} className={isOpen ? "" : style.closedButton}>
-        &larr;
-      </Button>
+    <div
+      className={isOpen ? style.sidebar : style.sidebarActive}
+      onClick={(e) => e.stopPropagation()}
+    >
       <ul className={style.sidebarButtons}>
         <li>
           <Link to={"/"}>

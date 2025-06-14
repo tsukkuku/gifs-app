@@ -20,3 +20,28 @@
   height: 2px;
   background: rgb(71, 71, 71);
 }
+
+@media (max-width: 1024px) {
+  .titleContainer {
+    width: 800px;
+  }
+}
+
+@media (max-width: 770px) {
+  .titleContainer {
+    width: 630px;
+  }
+}
+
+@media (max-width: 520px) {
+  .titleContainer {
+    width: 400px;
+  }
+}
+
+@media (max-width: 420px) {
+  .titleContainer {
+    margin-top: 10px;
+    width: 355px;
+  }
+}

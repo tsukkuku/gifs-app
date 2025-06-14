@@ -9,7 +9,7 @@
   box-shadow: 0 2px rgb(0, 0, 0, 0.2);
   color: #fff;
   width: 100%;
-  z-index: 1;
+  z-index: 20;
 
   a {
     color: #fff;
@@ -35,5 +35,36 @@
     background: transparent;
     width: 20px;
     height: 20px;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .buttonSidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 1243px) {
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .buttonSidebar {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 }

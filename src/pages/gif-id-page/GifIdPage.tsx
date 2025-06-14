@@ -83,11 +83,7 @@ const GifIdPage = () => {
       {isFetching ? (
         <ClipLoader color="white" size={64} />
       ) : (
-        <Gif
-          item={gifData}
-          variant="sticker"
-          styles={{ width: "480px", height: "480px" }}
-        />
+        <Gif item={gifData} variant="sticker" />
       )}
       <ToastContainer
         position="bottom-right"

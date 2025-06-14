@@ -18,3 +18,15 @@
     opacity: 0.8;
   }
 }
+
+@media (max-width: 480px) {
+  .input {
+    width: 400px;
+  }
+}
+
+@media (max-width: 390px) {
+  .input {
+    width: 350px;
+  }
+}

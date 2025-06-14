@@ -12,6 +12,7 @@
   border-radius: 8px;
   object-fit: cover;
   cursor: pointer;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4AQMAAACSSKldAAAABlBMVEUhIiIWFhYoSqvJAAAAGElEQVQY02MAAv7///8PWxqIPwDZw5UGABtgwz2xhFKxAAAAAElFTkSuQmCC");
 }
 
 .sticker {
@@ -81,5 +82,43 @@
       position: absolute;
       bottom: 0;
     }
+  }
+}
+
+@media (max-width: 772px) {
+  .default {
+    width: 200px;
+    height: 190px;
+  }
+
+  .sticker {
+    width: 200px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 419px) {
+  .default {
+    width: 170px;
+    height: 200px;
+  }
+
+  .sticker {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 470px) {
+  .random {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 380px) {
+  .random {
+    width: 350px;
+    height: 350px;
   }
 }
