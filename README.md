@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# Gif App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 👉 [Ссылка на MVP](https://tsukkuku.github.io/gifs-app/)
 
-Currently, two official plugins are available:
+#### Описание проекта:
+**SPA на React + TypeScript для поиска гифок через Giphy API, с возможностью сохранить их в избранное и скопировать их, отображение популярных гифок/стикеров**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функцонал
 
-## Expanding the ESLint configuration
+* 🔍 Поиск гифок
+* 🎲 Случайная гифка
+* 🔥 Популярные гифки/стикеры
+* ❤️ Система избранного
+* 📋 Копирование ссылки на гифку
+* 📱 Адапвтиная верстка
+* 🔢 Пагинация
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Скриншоты
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+![image](https://github.com/user-attachments/assets/6f0172ab-bd20-4a1f-a937-111e92d982e7)
+***Старница популярных гифок***
+
+![image](https://github.com/user-attachments/assets/cb90392f-5e6c-45db-b8be-352703992e5a)
+***Страница поиска***
+
+![image](https://github.com/user-attachments/assets/cfe1b7e3-b5aa-4854-9590-7d969654b222)
+***Случайная гифка***
+
+![image](https://github.com/user-attachments/assets/ad1aeda0-c4e9-4ce1-abac-4892f68dc60d)
+***Избранное***
+
+## Технологический стек: 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
+
+
+Установка: 
+
+1. Установка
+```bash
+git clone https://github.com/tsukkuku/gifs-app
+cd gifs-app
+```
+2. Установка зависимостей:
+```bash
+npm install
+```
+3. Создайте .env файл и вставьте туда свой API ключ от GIPHY
+```bash
+VITE_API_KEY=API_KEY
+```
+### Как запустить?:
+
+1. Запуск на локальном сервере
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Деплой
+```bash
+npm run build
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Собранные файлы будут в папке dist/**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+3. Просмотр собранного проекта
+```bash
+npm run preview
 ```
