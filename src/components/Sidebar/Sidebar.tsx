@@ -18,25 +18,25 @@ const Sidebar: FC<SidebarProps> = ({ isOpen }) => {
     >
       <ul className={style.sidebarButtons}>
         <li>
-          <Link to={"/"}>
-            <TbChartBarPopular />
-            Popular
-          </Link>
-        </li>
-        <li>
-          <Link to={"/random"}>
-            <GiPerspectiveDiceSixFacesRandom />
-            Random
-          </Link>
-        </li>
-        <li>
-          <Link to={"/search"}>
+          <Link to={"/gifs-app"}>
             <FaSearch />
             Search
           </Link>
         </li>
         <li>
-          <Link to={"/stickers"}>
+          <Link to={"/gifs-app/random"}>
+            <GiPerspectiveDiceSixFacesRandom />
+            Random
+          </Link>
+        </li>
+        <li>
+          <Link to={"/gifs-app/trends"}>
+            <TbChartBarPopular />
+            Popular
+          </Link>
+        </li>
+        <li>
+          <Link to={"/gifs-app/stickers"}>
             <LuSticker />
             Stickers
           </Link>

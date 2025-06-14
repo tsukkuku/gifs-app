@@ -18,7 +18,7 @@ const GifIdPage = () => {
     skip: !id,
   });
   const gifData = data?.data;
-  const gifUrl = gifData?.images.original.url;
+  const gifUrl = gifData?.images?.original?.url;
   const user = gifData?.user;
   const isPressed = useAppSelector(selectPressedStatus(gifData?.id || ""));
   const [isCopied, setIsCopied] = useState<boolean>(false);

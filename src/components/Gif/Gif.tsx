@@ -10,11 +10,12 @@ import { Link } from "react-router-dom";
 type GifVariant = "default" | "random" | "sticker";
 
 interface GifProps {
-  item?: IGif;
+  item: IGif;
   variant?: GifVariant;
+  className?: string;
 }
 
-const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
+const Gif: FC<GifProps> = memo(({ variant = "default", item, className }) => {
   if (!item) return;
   const dispatch = useAppDispatch();
   const isPressed = useAppSelector(selectPressedStatus(item.id));
@@ -26,11 +27,11 @@ const Gif: FC<GifProps> = memo(({ variant = "default", item }) => {
 
   return (
     <div className={style.gif}>
-      <Link to={`/${item.id}`}>
+      <Link to={`/gifs-app/${item.id}`}>
         <img
           src={item.images.original.url}
           alt={item?.title}
-          className={clsx(style[variant])}
+          className={clsx(style[variant], className)}
         />
       </Link>
       <div className={style.buttonOverlay}>

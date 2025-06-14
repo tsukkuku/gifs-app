@@ -9,12 +9,12 @@ import { createBrowserRouter, type RouteObject } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
-    path: "/",
+    path: "/gifs-app/",
     Component: Layout,
     children: [
-      { index: true, Component: TrendsPage },
+      { index: true, Component: SearchPage },
+      { path: "trends", Component: TrendsPage },
       { path: "random", Component: RandomPage },
-      { path: "search", Component: SearchPage },
       { path: "stickers", Component: StickersPage },
       { path: ":id", Component: GifIdPage },
     ],

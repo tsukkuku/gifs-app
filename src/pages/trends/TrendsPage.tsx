@@ -29,8 +29,8 @@ const TrendsPage = () => {
         <hr className={style.line} />
       </div>
       <GifList>
-        {newGifs.map((item) => (
-          <Gif item={item} key={item.images.original.url} />
+        {newGifs?.map((item) => (
+          <Gif item={item} key={item?.images?.original?.url} />
         ))}
         <div ref={ref}></div>
       </GifList>

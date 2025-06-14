@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = ({ handleOpen }) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerName}>
-        <Link to={"/"}>Gif App</Link>
+        <Link to={"/gifs-app"}>Gif App</Link>
 
         <div className={styles.buttons}>
           <Button onClick={handleOpen} className={styles.buttonSidebar}>
